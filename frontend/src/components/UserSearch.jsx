@@ -12,7 +12,12 @@ export default function UserSearch({ selectedUser, onSearch }) {
   return (
     <article className="card">
       <div className="card-header">
-        <h2>Buscar por ID</h2>
+        <div>
+          <h2>Buscar usuario por ID</h2>
+          <p className="section-text">
+            Digite o identificador de um usuario para revisar apenas aquele registro.
+          </p>
+        </div>
       </div>
 
       <form className="search-form" onSubmit={handleSubmit}>
@@ -30,13 +35,14 @@ export default function UserSearch({ selectedUser, onSearch }) {
       <div className="result-box">
         {selectedUser ? (
           <>
+            <small className="result-label">Resultado encontrado</small>
             <strong>{selectedUser.name}</strong>
             <span>{selectedUser.email}</span>
             <small>Criado em: {formatDate(selectedUser.created_at)}</small>
             <small>Atualizado em: {formatDate(selectedUser.updated_at)}</small>
           </>
         ) : (
-          <span>Nenhum usuario selecionado.</span>
+          <span>Nenhum usuario selecionado ainda.</span>
         )}
       </div>
     </article>

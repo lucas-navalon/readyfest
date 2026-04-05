@@ -9,10 +9,17 @@ export default function UserForm({
   return (
     <article className="card">
       <div className="card-header">
-        <h2>{isEditing ? 'Editar usuario' : 'Novo usuario'}</h2>
+        <div>
+          <h2>{isEditing ? 'Editar usuario' : 'Criar usuario'}</h2>
+          <p className="section-text">
+            {isEditing
+              ? 'Os campos abaixo foram preenchidos com os dados do usuario selecionado.'
+              : 'Preencha os campos para enviar um novo usuario para o backend.'}
+          </p>
+        </div>
         {isEditing ? (
           <button className="ghost-button" type="button" onClick={onReset}>
-            Cancelar edicao
+            Voltar para criacao
           </button>
         ) : null}
       </div>
@@ -42,7 +49,7 @@ export default function UserForm({
         </label>
 
         <button className="primary-button" type="submit" disabled={submitting}>
-          {submitting ? 'Salvando...' : isEditing ? 'Salvar alteracoes' : 'Criar usuario'}
+          {submitting ? 'Salvando...' : isEditing ? 'Salvar alteracoes' : 'Cadastrar usuario'}
         </button>
       </form>
     </article>

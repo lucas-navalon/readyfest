@@ -1,10 +1,15 @@
 import { formatDate } from '../utils/formatDate';
 
-export default function UserTable({ loading, users, onDelete, onEdit }) {
+export default function UserTable({ editingId, loading, users, onDelete, onEdit }) {
   return (
     <section className="card table-card">
       <div className="card-header">
-        <h2>Usuarios cadastrados</h2>
+        <div>
+          <h2>Lista de usuarios</h2>
+          <p className="section-text">
+            A tabela abaixo mostra os dados retornados pelo endpoint de listagem.
+          </p>
+        </div>
         <span className="badge">{users.length} registros</span>
       </div>
 
@@ -26,7 +31,7 @@ export default function UserTable({ loading, users, onDelete, onEdit }) {
             </thead>
             <tbody>
               {users.map((user) => (
-                <tr key={user.id}>
+                <tr key={user.id} className={editingId === user.id ? 'row-highlight' : ''}>
                   <td>{user.id}</td>
                   <td>{user.name}</td>
                   <td>{user.email}</td>

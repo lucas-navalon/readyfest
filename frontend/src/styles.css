@@ -1,7 +1,9 @@
 :root {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #1f2937;
-  background: linear-gradient(135deg, #f4efe6 0%, #f6fafc 50%, #eef6f1 100%);
+  font-family: 'Trebuchet MS', 'Segoe UI', sans-serif;
+  color: #22313f;
+  background:
+    radial-gradient(circle at top left, rgba(255, 220, 168, 0.45), transparent 28%),
+    linear-gradient(180deg, #fffaf2 0%, #f3f7fb 48%, #eef5ef 100%);
   line-height: 1.5;
   font-weight: 400;
   color-scheme: light;
@@ -18,6 +20,7 @@
 body {
   margin: 0;
   min-width: 320px;
+  min-height: 100vh;
 }
 
 button,
@@ -42,16 +45,16 @@ button:disabled {
 }
 
 .page {
-  max-width: 1160px;
+  max-width: 1120px;
   margin: 0 auto;
   padding: 48px 20px 64px;
 }
 
 .hero {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(240px, 0.8fr);
   gap: 24px;
-  align-items: flex-start;
+  align-items: stretch;
   margin-bottom: 24px;
 }
 
@@ -70,15 +73,80 @@ p {
 }
 
 h1 {
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  line-height: 1.05;
-  max-width: 12ch;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  line-height: 1.08;
+  max-width: 14ch;
   margin-bottom: 12px;
 }
 
 .subtitle {
-  max-width: 58ch;
+  max-width: 60ch;
   color: #4b5563;
+}
+
+.hero-content {
+  display: grid;
+  align-content: start;
+}
+
+.hero-actions {
+  display: grid;
+  gap: 16px;
+  align-content: start;
+  justify-items: start;
+}
+
+.status-chip {
+  display: inline-grid;
+  gap: 4px;
+  padding: 18px 20px;
+  border-radius: 20px;
+  background: #fff7e8;
+  color: #9a3412;
+  border: 1px solid #fed7aa;
+}
+
+.status-chip strong {
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.step-card {
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(251, 191, 36, 0.25);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+}
+
+.step-card h2 {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.step-card p {
+  color: #5b6471;
+  margin-bottom: 0;
+}
+
+.step-number {
+  display: inline-flex;
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  align-items: center;
+  justify-content: center;
+  background: #111827;
+  color: #fff;
+  font-weight: 700;
+  margin-bottom: 14px;
 }
 
 .grid {
@@ -90,7 +158,7 @@ h1 {
 
 .card {
   background: rgba(255, 255, 255, 0.88);
-  border: 1px solid rgba(148, 163, 184, 0.2);
+  border: 1px solid rgba(148, 163, 184, 0.22);
   border-radius: 24px;
   padding: 24px;
   box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
@@ -101,8 +169,14 @@ h1 {
   display: flex;
   justify-content: space-between;
   gap: 16px;
-  align-items: center;
+  align-items: flex-start;
   margin-bottom: 20px;
+}
+
+.section-text {
+  color: #667085;
+  margin-bottom: 0;
+  max-width: 48ch;
 }
 
 .form,
@@ -119,7 +193,7 @@ label {
 
 input {
   width: 100%;
-  border: 1px solid #d4d4d8;
+  border: 1px solid #d6dbe1;
   border-radius: 14px;
   padding: 14px 16px;
   background: #ffffff;
@@ -180,10 +254,17 @@ input:focus {
   min-height: 140px;
   border-radius: 18px;
   padding: 18px;
-  background: #f8fafc;
-  border: 1px dashed #cbd5e1;
+  background: #f8fbff;
+  border: 1px dashed #bfd2e6;
   display: grid;
   gap: 8px;
+}
+
+.result-label {
+  color: #0f766e;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
 }
 
 .table-card {
@@ -213,6 +294,10 @@ th {
   color: #6b7280;
 }
 
+.row-highlight {
+  background: #fff7ed;
+}
+
 .actions {
   display: flex;
   gap: 8px;
@@ -234,6 +319,7 @@ th {
   }
 
   .hero,
+  .steps,
   .grid,
   .card-header {
     grid-template-columns: 1fr;
