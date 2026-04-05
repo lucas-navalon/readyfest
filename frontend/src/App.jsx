@@ -136,7 +136,7 @@ export default function App() {
       <section className="hero card">
         <div className="hero-content">
           <p className="eyebrow">ReadyFest</p>
-          <h1>Exemplo visual de CRUD de</h1>
+          <h1>Exemplo de CRUD de usuarios</h1>
           <p className="subtitle">
             Esta tela conversa com o backend e mostra, de forma simples, as 4 operacoes
             principais: criar, listar, atualizar e excluir.
@@ -172,8 +172,8 @@ export default function App() {
 
         <article className="step-card">
           <span className="step-number">3</span>
-          <h2>Busque por ID</h2>
           <p>Use a busca para mostrar rapidamente um registro especifico.</p>
+          <p>Mostre um registro especifico</p>
         </article>
       </section>
 
