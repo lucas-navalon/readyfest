@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import FeedbackMessage from './components/FeedbackMessage';
 import UserForm from './components/UserForm';
 import UserSearch from './components/UserSearch';
@@ -24,8 +24,7 @@ export default function App() {
   const [submitting, setSubmitting] = useState(false);
   const [feedback, setFeedback] = useState({ type: '', text: '' });
   const [selectedUser, setSelectedUser] = useState(null);
-
-  const isEditing = useMemo(() => editingId !== null, [editingId]);
+  const isEditing = editingId !== null;
 
   async function loadUsers() {
     try {
@@ -132,20 +131,49 @@ export default function App() {
 
   return (
     <main className="page">
-      <section className="hero">
-        <div>
+      <section className="hero card">
+        <div className="hero-content">
           <p className="eyebrow">ReadyFest</p>
-          <h1>Painel simples para consumir o CRUD de usuarios</h1>
+          <h1>Exemplo visual de CRUD de usuarios</h1>
           <p className="subtitle">
-            Cadastre, edite, busque e remova usuarios usando os endpoints do backend.
+            Esta tela conversa com o backend e mostra, de forma simples, as 4 operacoes
+            principais: criar, listar, atualizar e excluir.
           </p>
         </div>
-        <button className="secondary-button" type="button" onClick={loadUsers}>
-          Atualizar lista
-        </button>
+
+        <div className="hero-actions">
+          <div className="status-chip">
+            <strong>{users.length}</strong>
+            <span>{users.length === 1 ? 'usuario salvo' : 'usuarios salvos'}</span>
+          </div>
+
+          <button className="secondary-button" type="button" onClick={loadUsers}>
+            Recarregar dados
+          </button>
+        </div>
       </section>
 
       <FeedbackMessage feedback={feedback} />
+
+      <section className="steps">
+        <article className="step-card">
+          <span className="step-number">1</span>
+          <h2>Preencha o formulario</h2>
+          <p>Digite nome e email para criar um novo usuario no banco.</p>
+        </article>
+
+        <article className="step-card">
+          <span className="step-number">2</span>
+          <h2>Edite quando quiser</h2>
+          <p>Clique em editar na tabela para carregar os dados no formulario.</p>
+        </article>
+
+        <article className="step-card">
+          <span className="step-number">3</span>
+          <h2>Busque por ID</h2>
+          <p>Use a busca para mostrar rapidamente um registro especifico.</p>
+        </article>
+      </section>
 
       <section className="grid">
         <UserForm
@@ -161,6 +189,7 @@ export default function App() {
       </section>
 
       <UserTable
+        editingId={editingId}
         loading={loading}
         users={users}
         onDelete={handleDelete}
