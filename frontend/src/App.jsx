@@ -134,7 +134,7 @@ export default function App() {
       <section className="hero card">
         <div className="hero-content">
           <p className="eyebrow">ReadyFest</p>
-          <h1>visual de CRUD de usuarios</h1>
+          <h1>Exemplo de CRUD de usuarios</h1>
           <p className="subtitle">
             Esta tela conversa com o backend e mostra, de forma simples, as 4 operacoes
             principais: criar, listar, atualizar e excluir.
