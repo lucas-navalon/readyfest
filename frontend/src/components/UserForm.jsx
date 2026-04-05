@@ -10,7 +10,6 @@ export default function UserForm({
     <article className="card">
       <div className="card-header">
         <div>
-          <h2>{isEditing ? 'Editar usuario' : 'Criar usuario'}</h2>
           <p className="section-text">
             {isEditing
               ? 'Os campos abaixo foram preenchidos com os dados do usuario selecionado.'

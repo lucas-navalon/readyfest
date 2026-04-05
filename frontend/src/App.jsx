@@ -31,8 +31,10 @@ export default function App() {
       setLoading(true);
       const data = await listUsers();
       setUsers(data);
+      setLoading(false);
     } catch (error) {
       setFeedback({ type: 'error', text: error.message });
+      setLoading(false);
     } finally {
       setLoading(false);
     }
