@@ -172,6 +172,7 @@ export default function App() {
           <span className="step-number">3</span>
           <h2>Busque por ID</h2>
           <p>Use a busca para mostrar rapidamente um registro especifico.</p>
+          <p>mostre um registro especifico</p>
         </article>
       </section>
 
