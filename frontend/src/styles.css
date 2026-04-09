@@ -4,7 +4,6 @@
   background:
     radial-gradient(circle at top left, rgba(255, 220, 168, 0.45), transparent 28%),
     linear-gradient(180deg, #fffaf2 0%, #f3f7fb 48%, #eef5ef 100%);
-  line-height: 1.5;
   font-weight: 400;
   color-scheme: light;
   font-synthesis: none;

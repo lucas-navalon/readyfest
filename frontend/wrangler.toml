@@ -1,0 +1,7 @@
+$schema = "./node_modules/wrangler/config-schema.json"
+name = "readyfest-frontend"
+pages_build_output_dir = "./dist"
+compatibility_date = "2026-04-09"
+
+[vars]
+VITE_API_BASE_URL = "https://api.seudominio.com"
